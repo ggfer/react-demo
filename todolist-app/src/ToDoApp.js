@@ -115,7 +115,7 @@ const Main = () => {
       <section>
         <div>
           <Input
-            placeholder="Input your todo...."
+            placeholder="input your todo...."
             disabled={false}
             readonly={false}
             type={InputType.Text}
