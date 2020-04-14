@@ -22,7 +22,7 @@ const TodoList = (props) => {
           />
           {/* <StandardListItem> */}
           <span>
-            ID:{item.id - 1} - {item.text} - finish before: {item.deadline}
+            ID:{item.id} - {item.text} - finish before: {item.deadline}
           </span>
           {/* </StandardListItem> */}
 
