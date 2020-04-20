@@ -22,7 +22,7 @@ function mapStateToProps(state1) {
     tiger: state1,
   };
 }
-//参数2：需要触发什么行为
+//参数2：需要触发什么行为，并且通过props传递到组件中去
 function mapDispatchToProps(dispatch) {
   return {
     PayIncrease: () => dispatch({ type: '涨工资' }),

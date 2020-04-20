@@ -1,32 +1,53 @@
 # react-redux
 
-## 1. redux
+## redux
 
 > 一种数据处理的工具。本质上这和 react 无关，并且实现起来会破坏组件结构，正如`./redux-orginal.js`中实现。
 
-## 2. 优势
+## react-redux 优势
 
-### A. 共享内容。深层组件可以与父类共用一部分自定义的数据和方法
+A. 共享内容。深层组件可以与父类共用一部分自定义的数据和方法
 
-### B. 依赖注入。不会破坏原组件结构
+B. 依赖注入。不会破坏原组件结构
 
-## 3. 实现方式 1：有状态组件
-
-虽然只有两个
+## 实现方式 1：有状态组件
 
 ### A. 组件外部
 
-> **Provider** 组件包裹原始组件，提供一个顶层容器的作用，并且传入希望传入的内容（内容包括数据和方法）。creatStore 代入的希望代入的部分，这部分建议单独写，如`./reducer.js`、[`./index.js`](./src/index.js)。
+**Provider** 组件包裹原始组件，提供一个顶层容器的作用，并且传入希望传入的内容（内容包括数据和方法）。creatStore 代入的希望代入的部分，这部分建议单独写，如`./reducer.js`、[`./index.js`](./src/index.js)。
 
 ### B. 组件周围
 
-> 增加 4 个**方法**，用 **connect** 把方法和原组件连接在一起。具体写法如`./redux-react-mock.js`
+增加 4 个**方法**，用 **connect** 把方法和原组件连接在一起。具体写法如`./redux-react-mock.js`
 
-## 6. 存在问题
+## 存在问题
 
-- sfc 写法
+### 无状态组件
 
-## 10. 参考链接
+写法(todo-app-with-redux 这个例子中已解决)
+
+### actionTypes
+
+action 是直接卸载 reducer 中，没有分出去 actionTypes
+
+### 异步请求。
+
+理论上是用 axios 来实现，但是问题是 store 只能接受 action 对象，而目的是请求异步得到 response，也就是想通过函数得到异步的请求结果。步骤如下：
+
+1. thunk 引入。createStore()的时候，原先只有 reducer，这里需要通过增强的方式加入中间件 thunk
+
+```javascript
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+```
+
+2. dispatch。原先我们想要 connect 粘合的部分不改变，原组件里面调用的方法的具体实现里面怎么写呢？axios 是异步请求的基础，另外一点比较重要的是 axios 支持 dispatch,那么就在收到 res.data.Body 之后，把 Body 的内容封装到 action 中，再 dispatch(action)。
+
+3. 订阅（使用方法）。调用 store 的内容方法暂时只知道三种，一种是 connect 粘合 types 到需要的那个组件的 props 中；另外一种是 componentDidMount()，生命周期就发起 axios；当然还有原始的在 constructor 中调用赋值使得 render。
+
+> 困惑点：subscribe
+
+## 参考链接
 
 - [redux+react-redux+示例的快速上手体验](https://segmentfault.com/a/1190000015684895)
 

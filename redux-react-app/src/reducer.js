@@ -1,6 +1,6 @@
 const tiger = 1000;
 
-//这是action
+//这是action对象，
 const increase = {
   type: '涨工资',
 };
