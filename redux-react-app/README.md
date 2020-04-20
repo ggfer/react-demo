@@ -2,7 +2,7 @@
 
 ## redux
 
-> 一种数据处理的工具。本质上这和 react 无关，并且实现起来会破坏组件结构，正如`./redux-orginal.js`中实现。
+一种数据处理的工具。本质上这和 react 无关，并且实现起来会破坏组件结构，正如[`./redux-orginal.js`](./src/redux-orginal.js)中实现。
 
 ## react-redux 优势
 
@@ -14,7 +14,7 @@ B. 依赖注入。不会破坏原组件结构
 
 ### A. 组件外部
 
-**Provider** 组件包裹原始组件，提供一个顶层容器的作用，并且传入希望传入的内容（内容包括数据和方法）。creatStore 代入的希望代入的部分，这部分建议单独写，如`./reducer.js`、[`./index.js`](./src/index.js)。
+**Provider** 组件包裹原始组件，提供一个顶层容器的作用，并且传入希望传入的内容（内容包括数据和方法）。creatStore 代入的希望代入的部分，这部分建议单独写，如[`./reducer.js`](./src/reducer.js)、[`./index.js`](./src/index.js)。
 
 ### B. 组件周围
 
