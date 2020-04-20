@@ -10,7 +10,7 @@
 
 ### B. 依赖注入。不会破坏原组件结构
 
-## 3. 实现方式一：有状态组件
+## 3. 实现方式 1：有状态组件
 
 虽然只有两个
 
@@ -22,19 +22,11 @@
 
 > 增加 4 个**方法**，用 **connect** 把方法和原组件连接在一起。具体写法如`./redux-react-mock.js`
 
-## 4. 参数详情
-
-[mapStateToProps], [mapDispatchToProps], [mergeProps], [options]
-
-## 5. 实现方式二：无状态组件
-
 ## 6. 存在问题
 
 - sfc 写法
 
--
-
-## 参考链接
+## 10. 参考链接
 
 - [redux+react-redux+示例的快速上手体验](https://segmentfault.com/a/1190000015684895)
 
