@@ -45,10 +45,34 @@ const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 3. 订阅（使用方法）。调用 store 的内容方法暂时只知道三种，一种是 connect 粘合 types 到需要的那个组件的 props 中；另外一种是 componentDidMount()，生命周期就发起 axios；当然还有原始的在 constructor 中调用赋值使得 render。
 
-> 困惑点：subscribe
+> 困惑点：subscribe,这个在 redux devtools 中有讲解
+
+## 中间件增强
+
+在上一节中讲到原始 store 的创建方式为 createStore(reducer)，当然在这个 reducer 后面，可以增加一些额外的对象，这些叫做叫做中间件，比如可以有 thunk，可以有 redux devtools
+
+## Redux DevTools
+
+> 方便在 chrome 中配合 extension ，进行 actionTypes 对应的 debug,不过比较好奇
+
+### 功能
+
+1. State: Action/Diff/State/Test
+
+2. call your actionTypes callback manually.
+
+3. settings manually.
+
+### Demo
+
+Live demos to use the extension with:[http://extension.remotedev.io/#demo](http://extension.remotedev.io/#demo), but just first two demos Counter and TodoMVC, are recommended.
 
 ## 参考链接
 
 - [redux+react-redux+示例的快速上手体验](https://segmentfault.com/a/1190000015684895)
 
 - [React Redux 7.2 官方文档](https://react-redux.js.org/introduction/quick-start)
+
+- [Redux DevTools](http://extension.remotedev.io/)
+
+- [React & Redux With ExpressJS (2016) - 11. Debugging with Redux Dev Tools](https://www.youtube.com/watch?v=6ygcbRpZFR4)

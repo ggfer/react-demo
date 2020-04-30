@@ -1,5 +1,5 @@
 {
-  "name": "auth-redux-app",
+  "name": "redux-structure-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

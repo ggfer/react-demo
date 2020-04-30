@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement } from './redux/actions';
 
 const App = () => {
+
   const counter = useSelector((state) => state.counter);
-  const a = 1;
+  const isLogged = useSelector((state) => state.isLogged);
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -12,7 +14,7 @@ const App = () => {
       <div>
         <div>
           Counter:{counter}
-          {/* a:{a} */}
+          <button onClick={() => dispatch(increment(5))}></button>
         </div>
       </div>
     </div>
